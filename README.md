@@ -6,4 +6,6 @@ Download the latest APK: <https://github.com/ignitrondev/relwatch-releases/relea
 
 Website: <https://relwatch.ignitrondev.space>
 
+Changes: [CHANGELOG.md](CHANGELOG.md)
+
 Relwatch is not affiliated with PT Kereta Api Indonesia.

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta.4] - 2026-11-18
+
+### Changed
+
+- Demo mode opens every tab before GAPEKA 2026 takes effect: Beranda, Cari and station boards show the sample train KA 132 on the demo clock. Real mode still follows the date.
+
 ## [0.1.0-beta.3] - 2026-11-18
 
 ### Added
@@ -45,7 +51,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Offline timetable; the basemap needs a connection.
 - Onboarding with an optional sign-in screen. Accounts are not active yet; tap Lewati.
 
-[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.3...HEAD
+[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.4...HEAD
+[0.1.0-beta.4]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.3...v0.1.0-beta.4
 [0.1.0-beta.3]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.2...v0.1.0-beta.3
 [0.1.0-beta.2]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.1...v0.1.0-beta.2
 [0.1.0-beta.1]: https://github.com/ignitrondev/relwatch-releases/releases/tag/v0.1.0-beta.1

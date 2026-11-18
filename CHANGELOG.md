@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta.3] - 2026-11-18
+
+### Added
+
+- Demo mode on the network map: one sample train, KA 132 Parahyangan (Gambir to Bandung), runs on its timetable so the map can be tried before GAPEKA 2026 takes effect.
+- Train detail card: tap a train to see its relation, estimated speed and section speed limit, status, next stop and consist. Train photos are coming soon.
+- Zoom buttons on the maps: tap for one level, hold to keep zooming.
+
+### Fixed
+
+- Maps keep to a zoom range where the basemap and trains stay visible.
+- Consists no longer disappear at very close zoom.
+
 ## [0.1.0-beta.2] - 2026-11-18
 
 ### Added
@@ -32,6 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Offline timetable; the basemap needs a connection.
 - Onboarding with an optional sign-in screen. Accounts are not active yet; tap Lewati.
 
-[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.2...HEAD
+[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.3...HEAD
+[0.1.0-beta.3]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.2...v0.1.0-beta.3
 [0.1.0-beta.2]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.1...v0.1.0-beta.2
 [0.1.0-beta.1]: https://github.com/ignitrondev/relwatch-releases/releases/tag/v0.1.0-beta.1

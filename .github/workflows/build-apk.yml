@@ -100,10 +100,10 @@ jobs:
       - name: Install cargo-ndk
         run: cargo install cargo-ndk --version 4.1.2 --locked
 
-      - uses: android-actions/setup-android@v3
-
       - name: Install SDK packages
-        run: sdkmanager "platforms;android-37.0" "build-tools;36.0.0" "ndk;30.0.16248370"
+        run: |
+            yes | sdkmanager --licenses >/dev/null
+                sdkmanager "platform-tools" "platforms;android-37.0" "build-tools;36.0.0" "ndk;30.0.16248370"
 
       - uses: gradle/actions/setup-gradle@v4
 

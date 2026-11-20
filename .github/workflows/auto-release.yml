@@ -1,0 +1,53 @@
+# Copyright (c) 2026 ignitrondev. All rights reserved.
+name: Auto release
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.check.outputs.version }}
+      ref: ${{ steps.check.outputs.ref }}
+      build: ${{ steps.check.outputs.build }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: check
+        env:
+          SOURCE_TOKEN: ${{ secrets.RELWATCH_SOURCE_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          sha=$(GH_TOKEN="$SOURCE_TOKEN" gh api repos/ignitrondev/RelWatch/commits/main --jq .sha)
+          version=$(GH_TOKEN="$SOURCE_TOKEN" gh api "repos/ignitrondev/RelWatch/contents/android/app/build.gradle.kts?ref=$sha" \
+            -H "Accept: application/vnd.github.raw" | grep -oP 'versionName = "\K[^"]+')
+          echo "main $sha versionName $version"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "ref=$sha" >> "$GITHUB_OUTPUT"
+          if gh release view "v$version" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "v$version already released"
+            echo "build=false" >> "$GITHUB_OUTPUT"
+          elif ! grep -q "^## \[$version\]" CHANGELOG.md; then
+            echo "CHANGELOG.md has no section for $version yet"
+            echo "build=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "new version $version"
+            echo "build=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  release:
+    needs: detect
+    if: needs.detect.outputs.build == 'true'
+    uses: ./.github/workflows/build-apk.yml
+    with:
+      ref: ${{ needs.detect.outputs.ref }}
+      version: ${{ needs.detect.outputs.version }}
+      publish: true
+      prerelease: ${{ contains(needs.detect.outputs.version, '-') }}
+    secrets: inherit

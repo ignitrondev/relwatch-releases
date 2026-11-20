@@ -2,6 +2,33 @@
 name: Build APK
 
 on:
+  workflow_call:
+    inputs:
+      ref:
+        type: string
+        default: main
+      version:
+        type: string
+        required: true
+      publish:
+        type: boolean
+        default: true
+      prerelease:
+        type: boolean
+        default: true
+    secrets:
+      RELWATCH_SOURCE_TOKEN:
+        required: true
+      RELEASE_KEYSTORE_B64:
+        required: true
+      RELEASE_STORE_PASSWORD:
+        required: true
+      RELEASE_KEY_ALIAS:
+        required: true
+      RELEASE_KEY_PASSWORD:
+        required: true
+      GOOGLE_SERVICES_JSON:
+        required: true
   workflow_dispatch:
     inputs:
       ref:

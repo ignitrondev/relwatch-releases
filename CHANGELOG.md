@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta.5] - 2026-11-21
+
+### Added
+
+- Optional account: sign in with Google or with email and password (with email verification and password reset). Tentang shows the account with Keluar and Hapus akun. Every feature still works without an account.
+- Grafik lintas: a time-distance graph of every train on a train's line, with the current estimated positions. Open it from Detail perjalanan.
+- Redesigned Detail perjalanan with the current position, consist and stations grouped into sections; pass-through stations can be expanded.
+- Search shows each train's live status, the nearest station from your location and popular stations.
+- Station boards split departures and arrivals, filter by class and show which trains are on their way.
+- Favourite stations, marked with a star and listed in Cari.
+- My-location button on the maps.
+- What's new screen in Tentang.
+- New onboarding photos by Rega Destama.
+
+### Changed
+
+- Train positions, timetables and boards now come from the Relwatch server; the app needs an internet connection to show them.
+- Positions take gradients into account, so trains slow down on climbs such as Nagreg and still arrive on schedule.
+- The train card on the map is a sheet that can be dragged, keeping the map visible.
+- Smoother back animation when swiping from the screen edge.
+- Tentang redesigned with an account card.
+
+### Security
+
+- The app refuses to run when it is not signed with the official key.
+
 ## [0.1.0-beta.4] - 2026-11-18
 
 ### Changed
@@ -51,7 +77,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Offline timetable; the basemap needs a connection.
 - Onboarding with an optional sign-in screen. Accounts are not active yet; tap Lewati.
 
-[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.4...HEAD
+[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.5...HEAD
+[0.1.0-beta.5]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.4...v0.1.0-beta.5
 [0.1.0-beta.4]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.3...v0.1.0-beta.4
 [0.1.0-beta.3]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.2...v0.1.0-beta.3
 [0.1.0-beta.2]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.1...v0.1.0-beta.2

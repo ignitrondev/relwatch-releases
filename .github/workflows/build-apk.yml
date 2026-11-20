@@ -1,0 +1,149 @@
+# Copyright (c) 2026 ignitrondev. All rights reserved.
+name: Build APK
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Branch, tag or commit of ignitrondev/RelWatch to build"
+        required: true
+        default: main
+      version:
+        description: "Version without the v prefix; must equal versionName (e.g. 0.1.0-beta.5)"
+        required: true
+      publish:
+        description: "Publish a GitHub release with relwatch.apk"
+        type: boolean
+        default: false
+      prerelease:
+        description: "Mark the release as a pre-release"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-apk
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      EXPECTED_CERT_SHA256: f03234029aaf41d431793aeb1c2b976806b60b8fc630bfd4d8b5ca2809d173c0
+      VERSION: ${{ inputs.version }}
+    steps:
+      - name: Check version format
+        run: |
+          [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.]+)?$ ]] || { echo "invalid version: $VERSION"; exit 1; }
+
+      - uses: actions/checkout@v4
+        with:
+          path: releases
+
+      - uses: actions/checkout@v4
+        with:
+          repository: ignitrondev/RelWatch
+          ref: ${{ inputs.ref }}
+          token: ${{ secrets.RELWATCH_SOURCE_TOKEN }}
+          path: src
+          persist-credentials: false
+
+      - name: Check versionName
+        working-directory: src/android
+        run: |
+          name=$(grep -oP 'versionName = "\K[^"]+' app/build.gradle.kts)
+          [ "$name" = "$VERSION" ] || { echo "versionName is $name, input is $VERSION"; exit 1; }
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Install Rust toolchain
+        working-directory: src
+        run: rustup show active-toolchain || rustup toolchain install
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src
+
+      - name: Install cargo-ndk
+        run: cargo install cargo-ndk --version 4.1.2 --locked
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Install SDK packages
+        run: sdkmanager "platforms;android-37.0" "build-tools;36.0.0" "ndk;30.0.16248370"
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Write signing and Firebase config
+        env:
+          KEYSTORE_B64: ${{ secrets.RELEASE_KEYSTORE_B64 }}
+          STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.RELEASE_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.RELEASE_KEY_PASSWORD }}
+          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+        run: |
+          umask 077
+          dir="$RUNNER_TEMP/relwatch"
+          mkdir -p "$dir"
+          printf '%s' "$KEYSTORE_B64" | base64 -d > "$dir/release.jks"
+          printf 'storeFile=%s\nstorePassword=%s\nkeyAlias=%s\nkeyPassword=%s\n' \
+            "$dir/release.jks" "$STORE_PASSWORD" "$KEY_ALIAS" "$KEY_PASSWORD" > "$dir/signing.properties"
+          printf '%s' "$GOOGLE_SERVICES_JSON" > "$dir/google-services.json"
+          echo "RELWATCH_SIGNING=$dir/signing.properties" >> "$GITHUB_ENV"
+          echo "GOOGLE_SERVICES=$dir/google-services.json" >> "$GITHUB_ENV"
+
+      - name: Build release APK
+        working-directory: src/android
+        run: |
+          ./gradlew :app:assembleRelease --console=plain \
+            -Prelwatch.abis=arm64-v8a \
+            -Prelwatch.googleServices="$GOOGLE_SERVICES"
+
+      - name: Verify signature
+        run: |
+          apk=src/android/app/build/outputs/apk/release/app-release.apk
+          apksigner=$(ls "$ANDROID_HOME"/build-tools/*/apksigner | sort | tail -1)
+          cert=$("$apksigner" verify --print-certs "$apk" | grep -oP 'SHA-256 digest: \K[0-9a-f]+' | head -1)
+          [ "$cert" = "$EXPECTED_CERT_SHA256" ] || { echo "unexpected signing certificate: $cert"; exit 1; }
+          cp "$apk" relwatch.apk
+          sha256sum relwatch.apk | tee relwatch.apk.sha256
+
+      - name: Remove secrets
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/relwatch"
+
+      - name: Release notes from CHANGELOG
+        if: inputs.publish
+        run: |
+          awk -v v="$VERSION" '
+            $0 ~ "^## \\[" v "\\]" {on=1; next}
+            on && /^## \[/ {exit}
+            on {print}
+          ' releases/CHANGELOG.md > notes.md
+          [ -s notes.md ] || { echo "CHANGELOG.md has no section for $VERSION"; exit 1; }
+
+      - name: Publish release
+        if: inputs.publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          flag=""
+          [ "${{ inputs.prerelease }}" = "true" ] && flag="--prerelease"
+          gh release create "v$VERSION" relwatch.apk relwatch.apk.sha256 \
+            --repo "$GITHUB_REPOSITORY" --title "Relwatch $VERSION" --notes-file notes.md $flag
+
+      - name: Keep APK as artifact
+        if: ${{ !inputs.publish }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: relwatch-${{ inputs.version }}
+          path: |
+            relwatch.apk
+            relwatch.apk.sha256
+          retention-days: 7

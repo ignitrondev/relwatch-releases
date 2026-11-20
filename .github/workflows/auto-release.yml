@@ -49,5 +49,5 @@ jobs:
       ref: ${{ needs.detect.outputs.ref }}
       version: ${{ needs.detect.outputs.version }}
       publish: true
-      prerelease: ${{ contains(needs.detect.outputs.version, '-') }}
+      prerelease: false
     secrets: inherit

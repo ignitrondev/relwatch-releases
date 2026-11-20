@@ -15,7 +15,7 @@ on:
         default: true
       prerelease:
         type: boolean
-        default: true
+        default: false
     secrets:
       RELWATCH_SOURCE_TOKEN:
         required: true
@@ -43,9 +43,9 @@ on:
         type: boolean
         default: false
       prerelease:
-        description: "Mark the release as a pre-release"
+        description: "Mark the release as a pre-release (pre-releases are not used by the download link)"
         type: boolean
-        default: true
+        default: false
 
 permissions:
   contents: write

@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta.7] - 2026-11-21
+
+### Added
+
+- Train meets (Papasan) from GAPEKA: which trains each train crosses, overtakes or is overtaken by, with station and time. Shown in Detail perjalanan, on the line graph and on the maps.
+- On the single-train map the opposing train appears shortly before a meet, so both can be watched passing.
+- Double track is drawn as two tracks, and trains run on their own track.
+- Train names on the map when zoomed in.
+- The line graph credits the ignitrondev-core engine.
+
+### Changed
+
+- Meets where both trains keep running are placed in the section where they pass, with the actual time, instead of at the station listed in GAPEKA.
+- A train that has just left a station shows "Berangkat dari" instead of "Berhenti".
+
+### Fixed
+
+- Signing in with Google from Tentang also requires the privacy policy consent.
+
 ## [0.1.0-beta.6] - 2026-11-21
 
 ### Added
@@ -89,7 +108,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Offline timetable; the basemap needs a connection.
 - Onboarding with an optional sign-in screen. Accounts are not active yet; tap Lewati.
 
-[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.6...HEAD
+[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.7...HEAD
+[0.1.0-beta.7]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.6...v0.1.0-beta.7
 [0.1.0-beta.6]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.5...v0.1.0-beta.6
 [0.1.0-beta.5]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.4...v0.1.0-beta.5
 [0.1.0-beta.4]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.3...v0.1.0-beta.4

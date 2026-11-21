@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta.10] - 2026-11-22
+
+### Changed
+
+- The app now connects to the server at api.relwatch.app. Earlier versions can no longer load data; update to this version.
+
 ## [0.1.0-beta.9] - 2026-11-21
 
 ### Added
@@ -135,7 +141,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Offline timetable; the basemap needs a connection.
 - Onboarding with an optional sign-in screen. Accounts are not active yet; tap Lewati.
 
-[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.9...HEAD
+[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.10...HEAD
+[0.1.0-beta.10]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.9...v0.1.0-beta.10
 [0.1.0-beta.9]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.8...v0.1.0-beta.9
 [0.1.0-beta.8]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.7...v0.1.0-beta.8
 [0.1.0-beta.7]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.6...v0.1.0-beta.7

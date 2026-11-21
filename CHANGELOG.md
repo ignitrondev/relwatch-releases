@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- The app now connects to the server at api.relwatch.app. Earlier versions can no longer load data; update to this version.
+- Updated the connection to the Relwatch server. Earlier versions can no longer load data; update to this version.
 
 ## [0.1.0-beta.9] - 2026-11-21
 

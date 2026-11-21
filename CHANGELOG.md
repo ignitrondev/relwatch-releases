@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta.8] - 2026-11-21
+
+### Added
+
+- Station sidings are drawn on the map, with smooth points. Trains waiting for a crossing or being overtaken move onto the siding; trains running through stay on the main line.
+- Open a station on the map from search results and from its station board.
+- The maps can be rotated with two fingers; a compass turns the map back to north.
+
+### Changed
+
+- Every train is drawn exactly on its track at all zoom levels, on double track and through curves, instead of drifting off the line or overlapping another train.
+
 ## [0.1.0-beta.7] - 2026-11-21
 
 ### Added
@@ -108,7 +120,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Offline timetable; the basemap needs a connection.
 - Onboarding with an optional sign-in screen. Accounts are not active yet; tap Lewati.
 
-[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.7...HEAD
+[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.8...HEAD
+[0.1.0-beta.8]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.7...v0.1.0-beta.8
 [0.1.0-beta.7]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.6...v0.1.0-beta.7
 [0.1.0-beta.6]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.5...v0.1.0-beta.6
 [0.1.0-beta.5]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.4...v0.1.0-beta.5

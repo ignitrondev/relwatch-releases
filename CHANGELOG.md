@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta.9] - 2026-11-21
+
+### Added
+
+- North Sumatra and Aceh (GAPEKA Sumbagut, KP-DJKA 117/2026): Sri Lelawangsa to Kualanamu Airport, Putri Deli, Sribilah Utama, Datuk Belambangan and the other trains, with their crossings. Positions appear from 1 December together with Java.
+- Terms of service, linked from the sign-in consent and from Tentang.
+
+### Changed
+
+- The official site moved to relwatch.app.
+
+### Fixed
+
+- Trains whose rolling stock is not known yet no longer disappear when the map is zoomed in.
+
 ## [0.1.0-beta.8] - 2026-11-21
 
 ### Added

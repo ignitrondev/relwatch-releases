@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta.12] - 2026-11-22
+
+### Added
+
+- Native feedback and bug report form in Tentang, with optional device info and diagnostic log attachment.
+
+### Changed
+
+- Verification and password reset emails are now sent from relwatch.app and link directly to the Relwatch confirmation page.
+
 ## [0.1.0-beta.11] - 2026-11-22
 
 ### Added
@@ -152,7 +162,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Offline timetable; the basemap needs a connection.
 - Onboarding with an optional sign-in screen. Accounts are not active yet; tap Lewati.
 
-[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.11...HEAD
+[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.12...HEAD
+[0.1.0-beta.12]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.11...v0.1.0-beta.12
 [0.1.0-beta.11]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.10...v0.1.0-beta.11
 [0.1.0-beta.10]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.9...v0.1.0-beta.10
 [0.1.0-beta.9]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.8...v0.1.0-beta.9

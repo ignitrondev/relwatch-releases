@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta.13] - 2026-11-22
+
+### Added
+
+- Registration flow now includes full name and password confirmation fields.
+- Deep link (`relwatch://auth`) and automatic email verification reload when returning from the confirmation link, plus a resend verification button in Tentang.
+
+### Fixed
+
+- Fixed a MapLibre `line-width` zoom expression error on consist window layers.
+
 ## [0.1.0-beta.12] - 2026-11-22
 
 ### Added
@@ -162,7 +173,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Offline timetable; the basemap needs a connection.
 - Onboarding with an optional sign-in screen. Accounts are not active yet; tap Lewati.
 
-[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.12...HEAD
+[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.13...HEAD
+[0.1.0-beta.13]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.12...v0.1.0-beta.13
 [0.1.0-beta.12]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.11...v0.1.0-beta.12
 [0.1.0-beta.11]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.10...v0.1.0-beta.11
 [0.1.0-beta.10]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.9...v0.1.0-beta.10

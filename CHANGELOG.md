@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta.11] - 2026-11-22
+
+### Added
+
+- Official Relwatch device verification for server access. Earlier versions can no longer load data; update to this version.
+
+### Changed
+
+- Trains are drawn more accurately along real OSM rails, including station platform tracks.
+- Clearer, user-friendly error messages throughout the app.
+
 ## [0.1.0-beta.10] - 2026-11-22
 
 ### Changed
@@ -141,7 +152,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Offline timetable; the basemap needs a connection.
 - Onboarding with an optional sign-in screen. Accounts are not active yet; tap Lewati.
 
-[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.10...HEAD
+[unreleased]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.11...HEAD
+[0.1.0-beta.11]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.10...v0.1.0-beta.11
 [0.1.0-beta.10]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.9...v0.1.0-beta.10
 [0.1.0-beta.9]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.8...v0.1.0-beta.9
 [0.1.0-beta.8]: https://github.com/ignitrondev/relwatch-releases/compare/v0.1.0-beta.7...v0.1.0-beta.8

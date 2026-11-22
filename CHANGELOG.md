@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0-rc.1] - 2026-11-23
+
+### Added
+
+- **Share Your Hunting (`#SafetyHunting`)**: create and share railfan hunting photo cards directly from the camera or gallery with train telemetry overlay, GPS auto-detection for nearby stations and trains, `#SafetyHunting` badge, railfan stickers, and Firebase photographer watermark (`Shot by ...`).
+- Selectable photo aspect ratios (**Portrait 4:5**, **1:1**, **Landscape 16:9**, **Story 9:16**) with adaptive **Minimal** and **Frosted Card** overlay layouts.
+
+### Changed
+
+- Redesigned bottom navigation into a floating pill bar with a dedicated center camera action button for Share Your Hunting.
+
 ## [0.1.0-beta.13] - 2026-11-22
 
 ### Added

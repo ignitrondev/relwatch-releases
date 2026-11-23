@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0-rc.3] - 2026-11-23
+
+### Changed
+
+- Simplified Share Your Hunting photo labels to clean, general-purpose options (`Tanpa label` by default, `Hunting Pagi`, `Hunting Sore`, `Night Shot`, `Spot Favorit`, and `Jarak Aman`).
+
 ## [1.0.0-rc.2] - 2026-11-23
 
 ### Fixed

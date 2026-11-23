@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0-rc.4] - 2026-11-23
+
+### Added
+
+- **Direct Upload to Relwatch Hunting Gallery**: upload hunting photos straight from Share Your Hunting to `relwatch.app/hunting` with automatic EXIF extraction, train category selection, clean corner-watermark archive mode (or optional telemetry card overlay), and hardware-attested device verification.
+
 ## [1.0.0-rc.3] - 2026-11-23
 
 ### Changed

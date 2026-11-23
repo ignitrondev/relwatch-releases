@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0-rc.5] - 2026-11-23
+
+### Added
+
+- **Full Indonesia GAPEKA 2026 coverage**: added Sumatra Barat (KP-DJKA 118/2026) and Sumatra Selatan & Lampung (KP-DJKA 119/2026) alongside Java and Sumbagut/Aceh — now covering **2,506 trains** and **628 stations**.
+- **Quick Region Switcher & Collapsible Filter** on the map HUD (`Jawa`, `Sumut`, `Sumbar`, `Sumsel`) for one-tap camera jumps and a cleaner, more spacious map canvas.
+
+### Fixed
+
+- Restored 100% double-track polylines across all major Java & Sumatra corridors and expanded station platform track discovery for large junctions (Cirebon, Bekasi, Surabaya Gubeng, Solo Balapan).
+
 ## [1.0.0-rc.4] - 2026-11-23
 
 ### Added

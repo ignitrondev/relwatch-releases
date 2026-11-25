@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0-rc.7] - 2026-11-25
+
+### Fixed
+
+- Fixed infinite loading spinner when reopening Obrolan Railfans (Global Chat) with existing messages.
+- Fixed user handle and staff role resolution in Global Chat messages.
+
 ## [1.0.0-rc.6] - 2026-11-25
 
 ### Added

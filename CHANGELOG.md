@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0-rc.9] - 2026-11-25
+
+### Changed
+
+- **Terminus Arrival Grace Window**: trains arriving at their final destination station now remain visible at the platform in muted gray (with a `"Tiba"` label on consist view) for 60 seconds before disappearing from the map.
+
 ## [1.0.0-rc.8] - 2026-11-25
 
 ### Added

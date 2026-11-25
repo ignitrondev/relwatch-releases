@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0-rc.8] - 2026-11-25
+
+### Added
+
+- **Station Signal Lamp Simulation (PPKA View)**: automatic entry (`M1`/`M2`) and exit (`K1`/`K2`) signal lamps across all 628 stations when zoomed in (`zoom >= 13.5`), dynamically switching between **Semboyan 5 (Green)**, **Semboyan 6 (Yellow)**, and **Semboyan 7 (Red)** based on yard occupancy and approaching trains (educational simulation, not official PPKA/KAI signaling).
+
 ## [1.0.0-rc.7] - 2026-11-25
 
 ### Fixed

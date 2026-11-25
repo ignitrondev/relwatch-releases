@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0-rc.6] - 2026-11-25
+
+### Added
+
+- **Obrolan Railfans (Global Chat, Android-exclusive)**: real-time WebSocket railfan chat directly on the map with region filters (`Semua`, `Jawa`, `Sumut`, `Sumbar`, `Sumsel`), optional privacy-safe nearest-station tag, automated moderation & spam cooldown, and `FLAG_SECURE` screen protection while the chat sheet is open.
+
+### Changed
+
+- Updated locomotive input placeholder in Share Your Hunting to `"Seri Lokomotif"`.
+
 ## [1.0.0-rc.5] - 2026-11-23
 
 ### Added

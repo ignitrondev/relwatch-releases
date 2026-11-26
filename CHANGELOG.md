@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0-rc.10] - 2026-11-26
+
+### Added
+
+- **Real-Time Locomotive Duty Reporting (Sensus Loko)**: report and confirm locomotives hauling trains (including double-traction / Traksi Ganda) directly from the train card and trip detail screen, backed by community consensus and automatic synchronization from approved Hunting Gallery photos.
+- **581-Locomotive Master Catalog & Profile**: search locomotive numbers in the Search tab to inspect home depot, livery, old number, active duty today, and 14-day duty history across 11 series and 26 depots in Java and Sumatra.
+
+### Changed
+
+- Refactored Android app into a feature-based modular architecture (`core/`, `feature/`, `navigation/`) and backend into Modular Monolith + DDD (`domain/`, `application/`, `infrastructure/`, `web/`).
+
 ## [1.0.0-rc.9] - 2026-11-25
 
 ### Changed

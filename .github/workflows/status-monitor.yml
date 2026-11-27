@@ -1,0 +1,52 @@
+name: Relwatch Status Monitor
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: status-monitor
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout workflow scripts
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github/scripts
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Fetch existing status-data branch
+        run: |
+          git fetch origin status-data:status-data 2>/dev/null || true
+          mkdir -p /tmp/status-data
+          if git show-ref --verify --quiet refs/heads/status-data; then
+            git show status-data:history.json > /tmp/status-data/history.json 2>/dev/null || true
+          fi
+
+      - name: Run health probes and update history.json
+        env:
+          HISTORY_FILE: /tmp/status-data/history.json
+          STATUS_DISCORD_WEBHOOK: ${{ secrets.STATUS_DISCORD_WEBHOOK }}
+        run: node .github/scripts/check-status.mjs
+
+      - name: Push updated history to status-data branch
+        run: |
+          cd /tmp/status-data
+          git init -b status-data
+          git config user.name "Relwatch Status Bot"
+          git config user.email "status-bot@relwatch.app"
+          git add history.json
+          git commit -m "chore(status): update 90-day uptime snapshot"
+          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          git push --force origin status-data

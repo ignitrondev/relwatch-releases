@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0-rc.11] - 2026-11-27
+
+### Added
+
+- **Real-Time Track Elevation & Gradient Telemetry**: train cards now display live elevation (`mdpl`) and local track gradient (`↗`/`↘ ‰`) across all 595 rail segments in Java and Sumatra (99.2% active position coverage), backed by 25 m-sampled AWS Terrarium DEM profiles anchored to official GAPEKA 2026 station elevations with linear bridge/tunnel interpolation (`2,647` bridges & `168` tunnels).
+- **Contour-Aware Kinematics Engine**: replaced linear station-to-station grade estimation with smoothed per-segment DEM grade profiles (`MAX_GRADE = 40‰`) and PostgreSQL `BYTEA` / SQLite `BLOB` binary profile storage, capturing intermediate mountain summits such as the `+870.7 m` crest east of Stasiun Nagreg (`+848 m`).
+- **DEM Data Attribution**: added elevation data attribution to the About & Licenses screens.
+
+### Fixed
+
+- Corrected 5 erroneous station elevation readings from the GAPEKA 2026 PDF/parser validated against DEM (`NG` 948 → 848 m, `BMW` 541 → 641 m, `IH` 304 → 384 m, `GRM` 182.9 → 244 m, `MLK` 70.2 → 429 m).
+
 ## [1.0.0-rc.10] - 2026-11-26
 
 ### Added
